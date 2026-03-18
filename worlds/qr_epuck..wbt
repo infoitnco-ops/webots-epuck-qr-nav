@@ -1,0 +1,128 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+  info [
+    "Minimalis Webots vilag E-puck + QR kod felismereshez"
+    "A QR tablakat a textures mappabol tolti be."
+  ]
+  title "E-puck QR"
+  basicTimeStep 64
+}
+Viewpoint {
+  fieldOfView 1
+  orientation -0.11509117236652557 0.2151257585640705 0.969780867023851 1.0082423297577412
+  position -1.242527258652315 -2.2770594634740666 1.0252342790704974
+}
+TexturedBackground {
+  texture "factory"
+}
+TexturedBackgroundLight {
+  texture "factory"
+}
+RectangleArena {
+  floorSize 2.2 2.2
+  wallHeight 0.18
+}
+DEF QR_BAL Solid {
+  translation 0.95 0 0.18
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "../textures/qr_bal.png"
+          ]
+        }
+      }
+      geometry Box {
+        size 0.01 0.28 0.28
+      }
+    }
+  ]
+  name "qr_bal"
+  boundingObject Box {
+    size 0.01 0.28 0.28
+  }
+  locked TRUE
+}
+DEF QR_JOBB Solid {
+  translation 0 0.95 0.18
+  rotation 0 0 1 -1.5707996938995747
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "../textures/qr_jobb.png"
+          ]
+        }
+      }
+      geometry Box {
+        size 0.01 0.28 0.28
+      }
+    }
+  ]
+  name "qr_jobb"
+  boundingObject Box {
+    size 0.01 0.28 0.28
+  }
+  locked TRUE
+}
+DEF QR_ALLJ Solid {
+  translation -0.95 0 0.18
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "../textures/qr_allj.png"
+          ]
+        }
+      }
+      geometry Box {
+        size 0.01 0.28 0.28
+      }
+    }
+  ]
+  name "qr_allj"
+  boundingObject Box {
+    size 0.01 0.28 0.28
+  }
+  locked TRUE
+}
+DEF QR_ELORE Solid {
+  translation 0 -0.95 0.18
+  rotation 0 0 1 1.5708003061004252
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "../textures/qr_elore.png"
+          ]
+        }
+      }
+      geometry Box {
+        size 0.01 0.28 0.28
+      }
+    }
+  ]
+  name "qr_elore"
+  boundingObject Box {
+    size 0.01 0.28 0.28
+  }
+  locked TRUE
+}
+E-puck {
+  translation 0.0019103253096247187 -0.058228724662571334 -0.0001246626875956152
+  rotation 6.84321e-07 -5.51349e-07 1 -1.347945307179586
+  controller "qr_epuck_controller"
+  camera_fieldOfView 1
+  camera_width 320
+  camera_height 240
+}

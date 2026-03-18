@@ -1,0 +1,16 @@
+# Python gyorsítótár
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ha később C/C++ kontrollert írnál, ezeket is jó kizárni
+build/
+*.o
+*.exe
+*.dll
+*.dylib
+*.so
+
+# Operációs rendszer fájljai
+.DS_Store
+Thumbs.db

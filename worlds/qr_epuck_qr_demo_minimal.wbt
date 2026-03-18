@@ -1,0 +1,179 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+  basicTimeStep 64
+  title "E-puck QR demo minimal"
+  info [
+    "Minimalis Webots vilag E-puck + QR kod felismereshez"
+    "Csak az E-puck PROTO kulso hivatkozas, minden mas sima node."
+  ]
+}
+
+Viewpoint {
+  orientation 0.2237701964937202 -0.30664582673336127 0.9252617749534529 3.5975798181720537
+  position 0.6406873911452759 0.5535394628667443 2.522769365168504
+}
+
+DEF FLOOR Solid {
+  translation 0 0 -0.02
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.75 0.75 0.75
+        }
+      }
+      geometry Box {
+        size 2.4 2.4 0.04
+      }
+    }
+  ]
+  name "floor"
+  boundingObject Box {
+    size 2.4 2.4 0.04
+  }
+  locked TRUE
+}
+
+DEF WALL_X_POS Solid {
+  translation 1.1 0 0.09
+  children [
+    Shape {
+      appearance Appearance {
+        material Material { diffuseColor 0.2 0.2 0.2 }
+      }
+      geometry Box { size 0.02 2.2 0.18 }
+    }
+  ]
+  name "wall_x_pos"
+  boundingObject Box { size 0.02 2.2 0.18 }
+  locked TRUE
+}
+
+DEF WALL_X_NEG Solid {
+  translation -1.1 0 0.09
+  children [
+    Shape {
+      appearance Appearance {
+        material Material { diffuseColor 0.2 0.2 0.2 }
+      }
+      geometry Box { size 0.02 2.2 0.18 }
+    }
+  ]
+  name "wall_x_neg"
+  boundingObject Box { size 0.02 2.2 0.18 }
+  locked TRUE
+}
+
+DEF WALL_Y_POS Solid {
+  translation 0 1.1 0.09
+  children [
+    Shape {
+      appearance Appearance {
+        material Material { diffuseColor 0.2 0.2 0.2 }
+      }
+      geometry Box { size 2.2 0.02 0.18 }
+    }
+  ]
+  name "wall_y_pos"
+  boundingObject Box { size 2.2 0.02 0.18 }
+  locked TRUE
+}
+
+DEF WALL_Y_NEG Solid {
+  translation 0 -1.1 0.09
+  children [
+    Shape {
+      appearance Appearance {
+        material Material { diffuseColor 0.2 0.2 0.2 }
+      }
+      geometry Box { size 2.2 0.02 0.18 }
+    }
+  ]
+  name "wall_y_neg"
+  boundingObject Box { size 2.2 0.02 0.18 }
+  locked TRUE
+}
+
+DEF QR_BAL Solid {
+  translation 0.95 0.0 0.18
+  rotation 0 0 1 1.5708
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url ["../textures/qr_bal.png"]
+        }
+      }
+      geometry Box { size 0.01 0.28 0.28 }
+    }
+  ]
+  name "qr_bal"
+  boundingObject Box { size 0.01 0.28 0.28 }
+  locked TRUE
+}
+
+DEF QR_JOBB Solid {
+  translation 0.0 0.95 0.18
+  rotation 0 0 1 3.14159
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url ["../textures/qr_jobb.png"]
+        }
+      }
+      geometry Box { size 0.01 0.28 0.28 }
+    }
+  ]
+  name "qr_jobb"
+  boundingObject Box { size 0.01 0.28 0.28 }
+  locked TRUE
+}
+
+DEF QR_ALLJ Solid {
+  translation -0.95 0.0 0.18
+  rotation 0 0 1 -1.5708
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url ["../textures/qr_allj.png"]
+        }
+      }
+      geometry Box { size 0.01 0.28 0.28 }
+    }
+  ]
+  name "qr_allj"
+  boundingObject Box { size 0.01 0.28 0.28 }
+  locked TRUE
+}
+
+DEF QR_ELORE Solid {
+  translation 0.0 -0.95 0.18
+  rotation 0 0 1 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url ["../textures/qr_elore.png"]
+        }
+      }
+      geometry Box { size 0.01 0.28 0.28 }
+    }
+  ]
+  name "qr_elore"
+  boundingObject Box { size 0.01 0.28 0.28 }
+  locked TRUE
+}
+
+E-puck {
+  translation 0 0 -0.000064
+  rotation 0 0 1 0
+  controller "qr_epuck_controller"
+  camera_width 320
+  camera_height 240
+  camera_fieldOfView 1.0
+}
